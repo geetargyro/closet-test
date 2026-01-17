@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <title>Closet Test</title>
+  <link rel="manifest" href="manifest.json" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">Closet Test</div>
+    <div class="top-actions">
+      <button id="btnHome" class="btn ghost">Home</button>
+      <button id="btnOptionsTop" class="btn ghost">Options</button>
+    </div>
+  </header>
+
+  <main id="app"></main>
+
+  <!-- Pause modal -->
+  <div id="pauseModal" class="modal hidden" role="dialog" aria-modal="true">
+    <div class="modal-card">
+      <div class="modal-title">Paused</div>
+      <button id="btnResume" class="btn">Resume</button>
+      <button id="btnRescan" class="btn">Rescan</button>
+      <button id="btnOptionsPause" class="btn">Options</button>
+      <button id="btnGoHome" class="btn secondary">Home</button>
+    </div>
+  </div>
+
+  <!-- ZXing (camera barcode scanning) -->
+  <script src="https://unpkg.com/@zxing/library@0.20.0/umd/index.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
