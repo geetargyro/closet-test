@@ -343,9 +343,16 @@ async function startCameraAndScan() {
         lastCode = code;
 
         // Mock “found product + offers”
-        currentScanResp = mockScanResponse(code);
-        drawOverlay();
-
+        (async () => {
+  try {
+    currentScanResp = await fetch(`/.netlify/functions/scan?upc=${encodeURIComponent(code)}`)
+      .then(r => r.json());
+  } catch (e) {
+    currentScanResp = null;
+    alert("API call failed");
+  }
+  drawOverlay();
+})();
         // If you want to allow auto-unlock after some seconds, you can:
         // setTimeout(() => { scanLocked = false; }, 5000);
       }
